@@ -1,5 +1,12 @@
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <>
+      <header className="flex justify-between items-center py-5 text-4xl	my-[3.12rem]">
+        <h2>Knowledge Cafe</h2>
+        <img src="assets/images/profile.png" alt="profile-image" />
+      </header>
+    </>
+  );
 };
 
 export default Header;
