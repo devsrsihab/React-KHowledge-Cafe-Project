@@ -6,10 +6,10 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="w-[78.75rem] mx-auto">
+      <div className="w-10/12 mx-auto">
         <Header></Header>
 
-        <main className="md:flex">
+        <main className="flex md:flex-row flex-col ">
           <Blogs></Blogs>
           <Bookmarks></Bookmarks>
         </main>

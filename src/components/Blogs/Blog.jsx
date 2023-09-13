@@ -6,13 +6,13 @@ const Blog = ({ blog }) => {
     <>
       <div className="card bg-white shadow-xl my-5">
         <figure>
-          <img src={thumbnail} alt={title + "-image"} />
+          <img src="" alt={title + "-image"} />
         </figure>
         <div className="card-body px-4 py-4">
           <div className="author flex justify-between items-center ">
-            <div className="left-side flex gap-5">
+            <div className="left-side flex items-center gap-5">
               <img
-                className="rounded-full w-[3.75rem]"
+                className="rounded-full w-14	  md:w-10	"
                 src={author.img}
                 alt=""
               />
@@ -24,12 +24,13 @@ const Blog = ({ blog }) => {
               </div>
             </div>
 
-            <div className="right-side text-xl text-[#11111199] ">
-              <h2>{reading_time} min</h2>
+            <div className="right-side flex gap-4 items-center text-xl text-[#11111199] ">
+              <h2>{reading_time} min read </h2>
+              <div className="icon text-red-500 text-3xl ">❤</div>
             </div>
           </div>
 
-          <h2 className=" card-title leading-[4rem] text-4xl text-[#111] font-bold ">
+          <h2 className="  text-2xl lg:text-4xl   text-[#111] font-bold ">
             {" "}
             {title}{" "}
           </h2>

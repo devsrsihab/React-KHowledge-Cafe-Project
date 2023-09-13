@@ -23,10 +23,12 @@ const Blogs = () => {
 
   return (
     <>
-      <div className="blogs w-2/3 p-4">
-        {blogs.map((blog) => (
-          <Blog key={blog.id} blog={blog}></Blog>
-        ))}
+      <div className="blogs lg:bg-blue-500 md:bg-red-500 lg:w-2/3 md:w-2/4 ">
+        <div className="blogs md:bg-red-500  ">
+          {blogs.map((blog) => (
+            <Blog key={blog.id} blog={blog}></Blog>
+          ))}
+        </div>
       </div>
     </>
   );
