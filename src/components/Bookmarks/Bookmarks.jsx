@@ -1,23 +1,29 @@
-const Bookmarks = () => {
+import PropTypes from "prop-types";
+import Bookmark from "./Bookmark";
+
+const Bookmarks = ({ bookmarks }) => {
+  console.log(bookmarks);
   return (
     <>
       <div className=" lg:w-1/3 md:w-2/4 ml-5">
-        <div className="bookmark-counter bg-[#6047EC1A] h-[2.5rem] p-10 text-2xl font-bold text-[#6047EC] flex items-center md:justify-center border border-[#6047EC] ">
+        <div className="bookmark-counter bg-[#6047EC1A] h-[2.5rem] p-10 text-2xl font-bold text-[#6047EC] flex flex-col items-center md:justify-center border border-[#6047EC] ">
           <h2 className="flex-shrink-0">Spent time on read : 177 min</h2>
+          <h2 className="flex-shrink-0">Total Bookmark: {bookmarks.length} </h2>
         </div>
 
         <div className="bookmark mt-8 bg-[#1111110D] p-10 ">
           <h2 className="text-2xl font-bold text-[#111111]">
-            Bookmarked Blogs : 8
+            Bookmarked Blogs :
           </h2>
-
-          <div className="bookmar-items mt-6 p-4 bg-white text-[#111111] font-[600] text-[1.2rem] ">
-            <p>Master Microsoft Power Platform and Become an In-Demand!</p>
-          </div>
+          {bookmarks.map((bookmark) => (
+            <Bookmark key={bookmark.id} bookmark={bookmark}></Bookmark>
+          ))}
         </div>
       </div>
     </>
   );
 };
-
+Bookmarks.propTypes = {
+  bookmarks: PropTypes.object,
+};
 export default Bookmarks;

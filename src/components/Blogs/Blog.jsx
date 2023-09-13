@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handlerBookmark }) => {
   const { title, author, publish_date, hashtags, reading_time } = blog;
+
   return (
     <>
       <div className="card bg-white shadow-xl my-5">
@@ -27,7 +28,12 @@ const Blog = ({ blog }) => {
 
             <div className="right-side flex gap-4 sm:justify-start justify-between items-center sm:text-xl text-[#11111199] ">
               <h2>{reading_time} min read </h2>
-              <div className="icon text-black  text-3xl ">❤</div>
+              <div
+                onClick={() => handlerBookmark(blog)}
+                className=" btn bg-white border-none hover:bg-white text-black  text-3xl "
+              >
+                ❤
+              </div>
             </div>
           </div>
 
@@ -50,7 +56,8 @@ const Blog = ({ blog }) => {
 };
 
 Blog.propTypes = {
-  blog: PropTypes.object.isRequired,
+  blog: PropTypes.object,
+  handlerBookmark: PropTypes.func,
 };
 
 export default Blog;
