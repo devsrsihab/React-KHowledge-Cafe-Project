@@ -25,11 +25,11 @@ const Blogs = ({ handlerBookmark, handlerMarkread }) => {
     <>
       <div className="blogs  lg:w-2/3 md:w-2/4 ">
         <div className="blogs   ">
-          {blogs.map((blog) => (
+          {blogs.map((blog, id) => (
             <Blog
               handlerMarkread={handlerMarkread}
               handlerBookmark={handlerBookmark}
-              key={blog.id}
+              key={id}
               blog={blog}
             ></Blog>
           ))}

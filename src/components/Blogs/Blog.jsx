@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 const Blog = ({ blog, handlerBookmark, handlerMarkread }) => {
-  const { title, author, publish_date, hashtags, reading_time } = blog;
+  const { id, title, author, publish_date, hashtags, reading_time } = blog;
   // define a bookmark active state
   const [isBookmark, setIsBookmark] = useState(false);
   // is bookmark handler
@@ -61,7 +61,7 @@ const Blog = ({ blog, handlerBookmark, handlerMarkread }) => {
           </div>
           <div className="card-actions my-5">
             <button
-              onClick={() => handlerMarkread(reading_time)}
+              onClick={() => handlerMarkread(id, reading_time)}
               className="btn btn-primary"
             >
               Mark as read

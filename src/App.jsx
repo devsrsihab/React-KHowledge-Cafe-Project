@@ -1,7 +1,7 @@
 import Header from "./components/Header/Header";
 import Blogs from "./components/Blogs/Blogs";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./App.css";
 // import PropTypes from "prop-types";
@@ -16,9 +16,10 @@ function App() {
   // define markread state
   const [markread, setMarkread] = useState(0);
   // define markread handler
-  const handlerMarkread = (reading_time) => {
+  const handlerMarkread = (id, reading_time) => {
     setMarkread(markread + reading_time);
-    console.log("mark as red", markread);
+    const newMarkread = bookmarks.filter((mark) => mark.id !== id);
+    setBookmarks(newMarkread);
   };
 
   return (
