@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
-const Blog = ({ blog, handlerBookmark }) => {
+import { useState } from "react";
+const Blog = ({ blog, handlerBookmark, handlerMarkread }) => {
   const { title, author, publish_date, hashtags, reading_time } = blog;
-
+  // define a bookmark active state
+  const [isBookmark, setIsBookmark] = useState(false);
+  // is bookmark handler
+  const handlerIsBokkmerActive = (isActice) => {
+    setIsBookmark(isActice);
+  };
   return (
     <>
       <div className="card bg-white shadow-xl my-5">
@@ -29,8 +35,15 @@ const Blog = ({ blog, handlerBookmark }) => {
             <div className="right-side flex gap-4 sm:justify-start justify-between items-center sm:text-xl text-[#11111199] ">
               <h2>{reading_time} min read </h2>
               <div
-                onClick={() => handlerBookmark(blog)}
-                className=" btn bg-white border-none hover:bg-white text-black  text-3xl "
+                onClick={() => {
+                  handlerBookmark(blog);
+                  handlerIsBokkmerActive(true);
+                }}
+                className={
+                  isBookmark
+                    ? " btn bg-white border-none hover:bg-white text-red-500  text-3xl "
+                    : "btn bg-white border-none hover:bg-white text-black  text-3xl "
+                }
               >
                 ❤
               </div>
@@ -47,7 +60,12 @@ const Blog = ({ blog, handlerBookmark }) => {
             ))}
           </div>
           <div className="card-actions my-5">
-            <button className="btn btn-primary">Mark as read</button>
+            <button
+              onClick={() => handlerMarkread(reading_time)}
+              className="btn btn-primary"
+            >
+              Mark as read
+            </button>
           </div>
         </div>
       </div>
@@ -58,6 +76,8 @@ const Blog = ({ blog, handlerBookmark }) => {
 Blog.propTypes = {
   blog: PropTypes.object,
   handlerBookmark: PropTypes.func,
+  isBookmark: PropTypes.bool,
+  handlerMarkread: PropTypes.func,
 };
 
 export default Blog;
